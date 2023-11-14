@@ -270,7 +270,6 @@ function BotTurnFunction() {
 function venceu(n) {
   for(let i in vencedor) {
     if (vencedor[i][0].innerHTML == 'X' && vencedor[i][1].innerHTML == 'X' && vencedor[i][2].innerHTML == 'X') {
-      setTimeout(() => {
         c('.venceu').style.display = 'flex'
         c('.venceu').innerHTML = 'VOCÊ VENCEU!'
         playerScore ++
@@ -278,31 +277,24 @@ function venceu(n) {
         checkPlayerScore = true
         winner = true
         clearTimeout(n)
-      }, 2000) 
     }
   }
   
   for(let i in vencedor) {
     if (vencedor[i][0].innerHTML == 'O' && vencedor[i][1].innerHTML == 'O' && vencedor[i][2].innerHTML == 'O') {
-      setTimeout(() => {
         c('.venceu').style.display = 'flex'
         c('.venceu').innerHTML = 'BOT VENCEU!'
         botScore ++
         c('.smartBot').innerHTML = botScore
         winner = true
         clearTimeout(n)
-      }, 2000)
-      
     }
   }
 
   if(options.length === 0 && winner === false) {
-    setTimeout(() => {
       c('.venceu').style.display = 'flex'
       c('.venceu').innerHTML = 'DEU EMPATE!'
       clearTimeout(n)
-    }, 2000)
-    
   }
 }
 
