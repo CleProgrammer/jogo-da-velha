@@ -83,6 +83,7 @@ function clicar(value) {
     venceu()
     
     //console.log(options.length)
+    //
 
     BotTurnFunction()
   }
