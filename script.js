@@ -46,46 +46,48 @@ BotTurnFunction()
 
 function clicar(value) {
 
-  let index = options.indexOf(parseInt(value[4]))
-  if(index > -1) {
-    saveJogada = parseInt(value[4])
-    options.splice(index, 1)
-  }
-
-  for(let i in vencedorX) {
-    let indexVencedor2 = vencedorX[i].indexOf(parseInt(value[4]))
-    if(indexVencedor2 > -1) {
-      vencedorX[i].splice(indexVencedor2, 1)
+  if( c(value).innerHTML === '' ) {
+    let index = options.indexOf(parseInt(value[4]))
+    if(index > -1) {
+      saveJogada = parseInt(value[4])
+      options.splice(index, 1)
     }
-  }
-
-  for(let i in jogadas) {
-    let indexJogadas = jogadas[i].indexOf(saveJogada)
-    if(indexJogadas > -1) {
-      jogadas[i].splice(indexJogadas, 1)
+  
+    for(let i in vencedorX) {
+      let indexVencedor2 = vencedorX[i].indexOf(parseInt(value[4]))
+      if(indexVencedor2 > -1) {
+        vencedorX[i].splice(indexVencedor2, 1)
+      }
     }
-  }
-
-  if(XorO === 'X') {
-    c(`${value}`).style.color = 'blue'
-    c(`${value}`).innerHTML = XorO
-    c('.xo1').style.width = '90px'
-    c('.xo1').style.height = '90px'
-    c('.xo1').style.borderBottom = '5px solid white'
-
-    c('.xo').style.width = '80px'
-    c('.xo').style.height = '80px'
-    c('.xo').style.borderBottom = '0px'
-    
-    XorO = 'O'
-    BotTurn = true
-
-    venceu()
-    
-    //console.log(options.length)
-    //
-
-    BotTurnFunction()
+  
+    for(let i in jogadas) {
+      let indexJogadas = jogadas[i].indexOf(saveJogada)
+      if(indexJogadas > -1) {
+        jogadas[i].splice(indexJogadas, 1)
+      }
+    }
+  
+    if(XorO === 'X') {
+      c(`${value}`).style.color = 'blue'
+      c(`${value}`).innerHTML = XorO
+      c('.xo1').style.width = '90px'
+      c('.xo1').style.height = '90px'
+      c('.xo1').style.borderBottom = '5px solid white'
+  
+      c('.xo').style.width = '80px'
+      c('.xo').style.height = '80px'
+      c('.xo').style.borderBottom = '0px'
+      
+      XorO = 'O'
+      BotTurn = true
+  
+      venceu()
+      
+      //console.log(options.length)
+      //
+  
+      BotTurnFunction()
+    }
   }
 }
 
